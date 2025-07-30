@@ -63,7 +63,7 @@ src/
 
 ## 🗺️ Diagrama Entidade-Relacionamento
 
-![Diagrama ERD](docs/diagrama.png)
+![Diagrama ERD](docs/Diagrama_Financeiro.png)
 
 ---
 
