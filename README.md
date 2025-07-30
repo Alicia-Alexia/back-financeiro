@@ -1,81 +1,100 @@
-📦 Backend - Sistema de Controle Financeiro
-Este é o back-end da aplicação de controle financeiro desenvolvida em Spring Boot, com persistência de dados em PostgreSQL e uso de JPA (Hibernate). Ele expõe uma API RESTful para o gerenciamento das principais entidades financeiras da instituição:
+# 💰 Sistema de Controle Financeiro - Back-End
 
-Despesa
+Este é o back-end de um sistema de controle financeiro para instituições públicas, com foco em gerenciar **Despesas**, **Empenhos** e **Pagamentos**. O projeto foi desenvolvido com **Spring Boot** e utiliza **PostgreSQL** como banco de dados, com versionamento via **Flyway**.
 
-Empenho
+---
 
-Pagamento
+## 🚀 Tecnologias Utilizadas
 
-🧱 Tecnologias Utilizadas
-Java 21
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- PostgreSQL
+- Flyway (migrations do banco)
+- Lombok
+- Maven
 
-Spring Boot 3
+---
 
-Spring Web
-
-Spring Data JPA
-
-Spring Validation
-
-PostgreSQL
-
-Lombok
-
-Flyway (para migrações de banco)
-
-Maven
-
+## 📦 Estrutura do Projeto
 src/
-├── controller/     # Endpoints REST
-├── service/        # Regras de negócio
-├── repository/     # Acesso ao banco via JPA
-├── model/          # Entidades JPA
-├── dtos/           # Data Transfer Objects
-└── migrations/     # Scripts de criação do banco (Flyway)
+├── controller # Endpoints REST
+├── service # Regras de negócio
+├── dto # Objetos de Transferência de Dados (DTOs)
+├── model # Entidades JPA
+├── repository # Interfaces de acesso a dados
+└── config # Configurações (ex: CORS)
 
-🧾 Entidades Principais
-Despesa: representa o processo financeiro da instituição
 
-Empenho: representa o compromisso da instituição com uma despesa
+---
 
-Pagamento: representa a efetivação de um empenho
+## 📚 Entidades e Relacionamentos
 
-As entidades possuem relacionamentos encadeados e as exclusões são protegidas por regras de integridade. Por exemplo, não é possível excluir um empenho com pagamentos associados.
+### 🔸 Despesa
 
-🔄 Endpoints REST
-Alguns exemplos:
+- `id`: Long
+- `numeroProtocolo`: String
+- `tipoDespesa`: String
+- `dataProtocolo`: LocalDate
+- `dataVencimento`: LocalDate
+- `credor`: String
+- `descricao`: String
+- `valorDespesa`: BigDecimal
 
-Despesas
-GET /api/despesa — Listar despesas
+### 🔸 Empenho
 
-POST /api/despesa — Cadastrar despesa
+- `id`: Long
+- `numeroEmpenho`: String
+- `dataEmpenho`: LocalDate
+- `valorEmpenho`: BigDecimal
+- `observacao`: String
+- `despesa`: Despesa (ManyToOne)
 
-PUT /api/despesa/{id} — Atualizar despesa
+### 🔸 Pagamento
 
-DELETE /api/despesa/{id} — Remover despesa
+- `id`: Long
+- `numeroPagamento`: String
+- `dataPagamento`: LocalDate
+- `valorPagamento`: BigDecimal
+- `observacao`: String
+- `empenho`: Empenho (ManyToOne)
 
-Empenhos
-GET /api/empenho
+---
 
-POST /api/empenho
+## 🗺️ Diagrama Entidade-Relacionamento
 
-DELETE /api/empenho/{id} (só se não tiver pagamentos)
+![Diagrama ERD](docs/diagrama.png)
 
-Pagamentos
-GET /api/pagamento/empenho/{id} — Buscar pagamentos por empenho
+---
 
-🛠️ Como executar localmente
-Pré-requisitos
-Java 21
+## 🔧 Configurações Iniciais
 
-Maven
+1. Clone o projeto:
+   ```bash
+   git clone https://github.com/Alicia-Alexia/back-financeiro.git
+2. Configure o banco de dados PostgreSQL com as credenciais em application.properties:
+   spring.datasource.url=jdbc:postgresql://localhost:5432/financeiro
+   spring.datasource.username=seu_usuario
+   spring.datasource.password=sua_senha
+3. Execute o projeto via sua IDE ou:
+   ./mvnw spring-boot:run
 
-PostgreSQL
+📌 Endpoints
+| Entidade  | Método | Endpoint                      | Descrição                       |
+| --------- | ------ | ----------------------------- | ------------------------------- |
+| Despesa   | GET    | `/api/despesa`                | Listar todas as despesas        |
+| Despesa   | POST   | `/api/despesa`                | Criar uma nova despesa          |
+| Empenho   | GET    | `/api/empenho`                | Listar todos os empenhos        |
+| Empenho   | POST   | `/api/empenho`                | Criar novo empenho para despesa |
+| Pagamento | GET    | `/api/pagamento`              | Listar todos os pagamentos      |
+| Pagamento | GET    | `/api/pagamento/empenho/{id}` | Listar pagamentos por empenho   |
+| Pagamento | POST   | `/api/pagamento`              | Criar novo pagamento            |
 
-Configuração do banco (exemplo)
-spring.datasource.url=jdbc:postgresql://localhost:5432/financeiro
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
-spring.jpa.hibernate.ddl-auto=update
+🗃️ Migrations com Flyway
+As migrations estão localizadas em:
+src/main/resources/db/migration
+Elas estão seguindo o padrão: V1__create_despesa_empenho_pagamento.sql](src/main/resources/db/migration/V1__create_despesa_empenho_pagamento.sql
+
+
+
 
