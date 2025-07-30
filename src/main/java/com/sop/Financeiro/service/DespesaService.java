@@ -72,11 +72,6 @@ public class DespesaService {
     public void excluir(Long id) {
         Despesa despesa = despesaRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Despesa não encontrada com ID: " + id));
-
-        if (despesa.getEmpenhos() != null && !despesa.getEmpenhos().isEmpty()) {
-            throw new IllegalStateException("Não é possível excluir uma Despesa com Empenhos associados.");
-        }
-
         despesaRepository.delete(despesa);
     }
 }
