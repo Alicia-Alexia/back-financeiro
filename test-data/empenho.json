@@ -1,0 +1,30 @@
+[
+  {
+    "numeroEmpenho": "E-2025-001",
+    "dataEmpenho": "2025-07-02",
+    "valorEmpenho": 1500.00,
+    "observacao": "Empenho inicial da compra de materiais",
+    "despesaId": 1
+  },
+  {
+    "numeroEmpenho": "E-2025-002",
+    "dataEmpenho": "2025-07-06",
+    "valorEmpenho": 2500.00,
+    "observacao": "Primeira parcela do contrato de limpeza",
+    "despesaId": 2
+  },
+  {
+    "numeroEmpenho": "E-2025-003",
+    "dataEmpenho": "2025-07-07",
+    "valorEmpenho": 2500.00,
+    "observacao": "Segunda parcela do contrato de limpeza",
+    "despesaId": 2
+  },
+  {
+    "numeroEmpenho": "E-2025-004",
+    "dataEmpenho": "2025-07-11",
+    "valorEmpenho": 12000.00,
+    "observacao": "Empenho total da licença anual do ERP",
+    "despesaId": 3
+  }
+]

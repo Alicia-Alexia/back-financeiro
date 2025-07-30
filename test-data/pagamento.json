@@ -1,0 +1,37 @@
+[
+  {
+    "numeroPagamento": "P-2025-001",
+    "dataPagamento": "2025-07-10",
+    "valorPagamento": 1500.00,
+    "observacao": "Pagamento único da despesa de materiais",
+    "empenhoId": 1
+  },
+  {
+    "numeroPagamento": "P-2025-002",
+    "dataPagamento": "2025-07-15",
+    "valorPagamento": 2500.00,
+    "observacao": "Pagamento referente à primeira parcela da limpeza",
+    "empenhoId": 2
+  },
+  {
+    "numeroPagamento": "P-2025-003",
+    "dataPagamento": "2025-07-25",
+    "valorPagamento": 2500.00,
+    "observacao": "Pagamento referente à segunda parcela da limpeza",
+    "empenhoId": 3
+  },
+  {
+    "numeroPagamento": "P-2025-004",
+    "dataPagamento": "2025-07-30",
+    "valorPagamento": 6000.00,
+    "observacao": "Pagamento parcial da licença ERP",
+    "empenhoId": 4
+  },
+  {
+    "numeroPagamento": "P-2025-005",
+    "dataPagamento": "2025-08-05",
+    "valorPagamento": 6000.00,
+    "observacao": "Pagamento final da licença ERP",
+    "empenhoId": 4
+  }
+]

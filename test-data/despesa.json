@@ -1,0 +1,29 @@
+[
+  {
+    "numeroProtocolo": "D-2025-001",
+    "tipoDespesa": "Material de Escritório",
+    "dataProtocolo": "2025-07-01T10:00:00",
+    "dataVencimento": "2025-07-15",
+    "credor": "Papelaria Silva Ltda",
+    "descricao": "Compra de materiais básicos para escritório",
+    "valorDespesa": 1500.00
+  },
+  {
+    "numeroProtocolo": "D-2025-002",
+    "tipoDespesa": "Serviço de Terceiros",
+    "dataProtocolo": "2025-07-05T14:30:00",
+    "dataVencimento": "2025-08-01",
+    "credor": "Limpeza Express",
+    "descricao": "Contrato de limpeza mensal do prédio",
+    "valorDespesa": 5000.00
+  },
+  {
+    "numeroProtocolo": "D-2025-003",
+    "tipoDespesa": "TI - Licença de Software",
+    "dataProtocolo": "2025-07-10T09:00:00",
+    "dataVencimento": "2025-08-10",
+    "credor": "Soft Solutions",
+    "descricao": "Licença anual do sistema ERP",
+    "valorDespesa": 12000.00
+  }
+]
