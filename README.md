@@ -6,7 +6,7 @@ Este é o back-end de um sistema de controle financeiro para instituições púb
 
 ## 🚀 Tecnologias Utilizadas
 
-- Java 17
+- Java 21
 - Spring Boot
 - Spring Data JPA
 - PostgreSQL
@@ -88,12 +88,32 @@ src/
 | Empenho   | POST   | `/api/empenho`                | Criar novo empenho para despesa |
 | Pagamento | GET    | `/api/pagamento`              | Listar todos os pagamentos      |
 | Pagamento | GET    | `/api/pagamento/empenho/{id}` | Listar pagamentos por empenho   |
-| Pagamento | POST   | `/api/pagamento`              | Criar novo pagamento            |
+| Pagamento | POST   | `/api/pagamento`              | Criar novo pagamento   
+
+🧪 Dados de Teste
+Use os seguintes arquivos JSON para testar a aplicação com dados reais simulados. Você pode utilizar ferramentas como Postman ou curl para enviar os dados às rotas da API.
+
+Entidade	Arquivo JSON	Observação
+Despesa	despesas.json	Cadastrar antes de empenhos
+Empenho	empenhos.json	Precisa do despesaId correspondente
+Pagamento	pagamentos.json	Precisa do empenhoId correspondente
+✅ Recomenda-se importar os dados na ordem: Despesas → Empenhos → Pagamentos|
 
 🗃️ Migrations com Flyway
 As migrations estão localizadas em:
 src/main/resources/db/migration
 Elas estão seguindo o padrão: V1__create_despesa_empenho_pagamento.sql](src/main/resources/db/migration/V1__create_despesa_empenho_pagamento.sql
+
+## ⚠️ Pontos de Melhoria
+
+Este projeto está em desenvolvimento inicial e pode ser expandido com as seguintes melhorias:
+
+-  Implementação de **testes unitários e de integração**.
+-  Configuração de **deploy automatizado**.
+-  Melhoria na **tratativa de erros e validações personalizadas**.
+-  Criação de uma **documentação completa da API** .
+-  Inclusão de **perfis de ambiente** (`dev`, `prod`) com configurações separadas.
+
 
 
 
